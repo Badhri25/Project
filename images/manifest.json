@@ -1,0 +1,37 @@
+{
+  "name": "JetBuy",
+  "short_name": "JetBuy",
+  "description": "Order your favorites on JetBuy with just a Siri command.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#142030",
+  "theme_color": "#142030",
+  "icons": [
+    {
+      "src": "images/jetbuy-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/jetbuy-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Order Coffee",
+      "short_name": "Coffee",
+      "description": "Quick order coffee",
+      "url": "/?order=coffee",
+      "icons": [{ "src": "images/coffee.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Orders",
+      "short_name": "Orders",
+      "description": "See your recent orders",
+      "url": "/orders",
+      "icons": [{ "src": "images/orders.png", "sizes": "96x96" }]
+    }
+  ]
+}
