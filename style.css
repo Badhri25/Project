@@ -11,13 +11,24 @@
   --card-text-dark: #f7f7f7;
 }
 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom, var(--primary-bg) 0%, #ffffff 100%);
   color: var(--primary-text);
   margin: 0;
   padding: 0;
+  font-size: 1rem;
+  line-height: 1.5;
   transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
 body.dark-mode {
@@ -25,19 +36,31 @@ body.dark-mode {
   color: #f7f7f7;
 }
 
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a, button {
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
+}
+
+/* Navigation */
 nav {
   display: flex;
   align-items: center;
   padding: 0.7rem 1.2rem;
   background: transparent;
   min-height: 44px;
+  position: relative;
 }
-
 nav .logo img {
   height: 28px;
   width: auto;
 }
-
 #navToggle {
   display: none;
   background: none;
@@ -46,15 +69,14 @@ nav .logo img {
   margin-left: auto;
   cursor: pointer;
 }
-
 nav ul {
   list-style: none;
   display: flex;
   gap: 0.8rem;
   margin-left: auto;
   align-items: center;
+  padding: 0;
 }
-
 nav ul li a,
 nav ul li button {
   text-decoration: none;
@@ -69,19 +91,16 @@ nav ul li button {
   transition: background 0.2s, color 0.2s;
   outline: none;
 }
-
 nav ul li a:focus,
 nav ul li button:focus {
   outline: var(--focus-outline);
   background: #e8ebf3;
 }
-
 nav ul li a:hover,
 nav ul li button:hover {
   background: #e8ebf3;
   color: #3a4a60;
 }
-
 #darkModeToggle {
   font-size: 1.3rem;
   padding: 0.1em 0.5em;
@@ -131,13 +150,17 @@ nav ul li button:hover {
 }
 
 /* FULLSCREEN SECTIONS */
-.fullscreen {
+.fullscreen, .fullscreen-content {
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 /* HERO SECTION LAYOUT */
@@ -192,8 +215,6 @@ nav ul li button:hover {
   border-radius: 32px;
   overflow: hidden;
 }
-
-/* iPhone frame image (on top as mask) */
 .iphone-frame {
   position: absolute;
   top: 0; left: 0;
@@ -495,7 +516,7 @@ nav ul li button:hover {
 }
 .brand-title {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-size: 3.2rem;
+  font-size: clamp(1.2rem, 5vw, 3.2rem);
   font-weight: 900;
   margin-bottom: 2.2rem;
   color: #111;
@@ -558,6 +579,8 @@ body.dark-mode .testimonial {
 .testimonial-img {
   width: 112px;
   height: 112px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 32px #5a7a9e22;
@@ -610,6 +633,8 @@ body.dark-mode .testimonial {
   }
   .testimonial-img {
     margin-bottom: 16px;
+    width: 64px;
+    height: 64px;
   }
 }
 
@@ -620,7 +645,7 @@ body.dark-mode .testimonial {
   margin: 0 auto;
 }
 .faqs h2 {
-  font-size: 2.8rem;
+  font-size: clamp(1.2rem, 5vw, 2.8rem);
   margin-bottom: 2.2rem;
   text-align: center;
 }
@@ -662,7 +687,7 @@ body.dark-mode .testimonial {
   text-align: center;
 }
 .download h2 {
-  font-size: 2.8rem;
+  font-size: clamp(1.2rem, 5vw, 2.8rem);
   margin-bottom: 2.2rem;
 }
 .download .app-store-badge img {
@@ -810,29 +835,24 @@ footer a:hover {
     border-radius: 5px;
     background: var(--primary-bg);
   }
+  .hero-section, .brand-section, .faqs, .download {
+    padding: 0.5rem 0.1rem;
+    min-height: 90vh;
+  }
+  .brand-title, .faqs h2, .download h2 {
+    font-size: 1.1rem !important;
+  }
+  .faq-question {
+    font-size: 1rem;
+    padding: 1.1rem;
+  }
 }
-.testimonial-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.2rem;
-  align-items: center;
-}
-.fullscreen-section.testimonial-section {
-  margin-bottom: 3cm;
-}
-.fullscreen-section.testimonial-section:last-of-type {
-  margin-bottom: 0;
-}
-.testimonial-section .testimonial + .testimonial {
-  margin-top: 3cm;
-}
-/* AI Accessibility Widget Styles */
+/* --- Accessibility Widget Styles --- */
 .ai-access-btn {
   position: fixed;
   bottom: 1.5rem;
   left: 1.5rem;
-  z-index: 10001;
+  z-index: 2147483647;
   background: #222;
   color: #fff;
   border: none;
@@ -848,7 +868,6 @@ footer a:hover {
   background: #70f570;
   color: #222;
 }
-
 .ai-access-panel {
   display: none;
   flex-direction: column;
@@ -860,7 +879,7 @@ footer a:hover {
   border-radius: 18px;
   box-shadow: 0 8px 32px #5a7a9e22;
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  z-index: 10002;
+  z-index: 2147483647;
   min-width: 220px;
   max-width: 90vw;
 }
@@ -897,17 +916,12 @@ footer a:hover {
   cursor: pointer;
 }
 
-/* Optional: Simplified Layout Mode */
-body.simplified-layout main {
-  margin: 2rem auto !important;
-}
-
-/* --- Cute Chatbot Widget Styles --- */
+/* --- Chatbot Widget Styles --- */
 .chatbot-toggle {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 10010;
+  z-index: 2147483647;
   background: #fff;
   border-radius: 50%;
   border: none;
@@ -923,7 +937,6 @@ body.simplified-layout main {
 .chatbot-toggle:focus, .chatbot-toggle:hover {
   box-shadow: 0 8px 32px #70f57044;
 }
-
 .chatbot-widget {
   position: fixed;
   bottom: 90px;
@@ -933,7 +946,7 @@ body.simplified-layout main {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 8px 32px #5a7a9e22;
-  z-index: 10011;
+  z-index: 2147483647;
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
@@ -1082,18 +1095,4 @@ body.simplified-layout main {
 }
 @media (max-width: 600px) {
   .chatbot-widget { width: 98vw; right: 1vw; }
-}
-.ai-access-btn,
-.chatbot-toggle,
-.ai-access-panel,
-.chatbot-widget {
-  z-index: 99999 !important;
-}
-.ai-access-btn,
-.chatbot-toggle,
-.ai-access-panel,
-.chatbot-widget {
-  z-index: 2147483647 !important;
-  pointer-events: auto !important;
-  position: fixed !important;
 }
