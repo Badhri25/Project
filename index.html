@@ -21,14 +21,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-   <!-- Accessibility Skip Link (first focusable element) -->
+    <!-- Accessibility Skip Link (first focusable element) -->
     <a href="#mainContent" class="skip-link">Skip to main content</a>
 
     <nav role="navigation" aria-label="Main Navigation">
       <a href="./" class="logo">
-        <img src="https://framerusercontent.com/images/Dy7LMU246QsodtAffKuqzRgA.png" alt="JetBuy Logo" width="80" height="32" />
+        <img
+          src="https://framerusercontent.com/images/Dy7LMU246QsodtAffKuqzRgA.png"
+          alt="JetBuy Logo"
+          width="80"
+          height="32"
+        />
       </a>
-      <button id="navToggle" aria-label="Open navigation" aria-controls="nav-list" aria-expanded="false">
+      <button
+        id="navToggle"
+        aria-label="Open navigation"
+        aria-controls="nav-list"
+        aria-expanded="false"
+      >
         <span>☰</span>
       </button>
       <ul id="nav-list">
@@ -392,9 +402,10 @@
 
     <footer>
       <p>
-        © 2025 JetBuy | <a href="./legal/privacy-policy">Privacy Policy</a> |
-        <a href="./legal/terms-conditions">Terms &amp; Conditions</a> |
-        <a href="./legal/eula">EULA</a>
+        © 2025 JetBuy |
+        <a href="legal/privacy-policy.html">Privacy Policy</a> |
+        <a href="legal/terms-conditions.html">Terms &amp; Conditions</a> |
+        <a href="legal/eula.html">EULA</a>
       </p>
     </footer>
 
@@ -704,22 +715,22 @@
         });
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Only for desktop (not touch)
-        if (window.matchMedia('(pointer: coarse)').matches === false) {
-          let skipLink = document.querySelector('.skip-link');
+        if (window.matchMedia("(pointer: coarse)").matches === false) {
+          let skipLink = document.querySelector(".skip-link");
           // Set tabindex=1 to ensure it's first (optional, not always needed)
-          skipLink.setAttribute('tabindex', '1');
+          skipLink.setAttribute("tabindex", "1");
           // Optionally, focus skip link on first Tab press
           let firstTab = true;
           function handleFirstTab(e) {
-            if (e.key === 'Tab' && firstTab) {
+            if (e.key === "Tab" && firstTab) {
               skipLink.focus();
               firstTab = false;
-              window.removeEventListener('keydown', handleFirstTab);
+              window.removeEventListener("keydown", handleFirstTab);
             }
           }
-          window.addEventListener('keydown', handleFirstTab);
+          window.addEventListener("keydown", handleFirstTab);
         }
       });
     </script>
