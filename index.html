@@ -1,441 +1,745 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="utf-8" />
-  <title>JetBuy</title>
-  <meta name="description" content="Order your favorites on JetBuy with just a Siri command" />
-  <link rel="icon" href="https://framerusercontent.com/images/S0Weuf4zXAxbrem2VqmVWvJkj10.png" />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#142030" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Accessibility Skip Link -->
-  <a href="#mainContent" class="skip-link">Skip to main content</a>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>JetBuy</title>
+    <meta
+      name="description"
+      content="Order your favorites on JetBuy with just a Siri command"
+    />
+    <link
+      rel="icon"
+      href="https://framerusercontent.com/images/S0Weuf4zXAxbrem2VqmVWvJkj10.png"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#142030" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+   <!-- Accessibility Skip Link (first focusable element) -->
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <nav role="navigation" aria-label="Main Navigation">
-    <a href="./" class="logo">
-      <img src="https://framerusercontent.com/images/Dy7LMU246QsodtAffKuqzRgA.png" alt="JetBuy Logo" width="80" height="32" />
-    </a>
-    <button id="navToggle" aria-label="Open navigation" aria-controls="nav-list" aria-expanded="false">
-      <span>☰</span>
-    </button>
-    <ul id="nav-list">
-      <li><a href="#discover">Discover</a></li>
-      <li><a href="#brands">Brands</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#faqs">FAQs</a></li>
-      <li><a href="#download">Download</a></li>
-    </ul>
-  </nav>
+    <nav role="navigation" aria-label="Main Navigation">
+      <a href="./" class="logo">
+        <img src="https://framerusercontent.com/images/Dy7LMU246QsodtAffKuqzRgA.png" alt="JetBuy Logo" width="80" height="32" />
+      </a>
+      <button id="navToggle" aria-label="Open navigation" aria-controls="nav-list" aria-expanded="false">
+        <span>☰</span>
+      </button>
+      <ul id="nav-list">
+        <li><a href="#discover">Discover</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#download">Download</a></li>
+      </ul>
+    </nav>
 
-  <main id="mainContent">
-    <section class="hero-section fullscreen" id="discover">
-      <div class="hero-flex">
-        <div class="iphone-mockup tilt" tabindex="0" aria-label="iPhone JetBuy demo">
-          <div class="iphone-screen-content">
-            <div id="staticMessage" class="static-message" style="display: none">
-              <span id="typingMessage"></span>
+    <main id="mainContent">
+      <section class="hero-section fullscreen" id="discover">
+        <div class="hero-flex">
+          <div
+            class="iphone-mockup tilt"
+            tabindex="0"
+            aria-label="iPhone JetBuy demo"
+          >
+            <div class="iphone-screen-content">
+              <div
+                id="staticMessage"
+                class="static-message"
+                style="display: none"
+              >
+                <span id="typingMessage"></span>
+              </div>
+              <div
+                id="siriCommand"
+                class="siri-command-inside"
+                style="display: none"
+              >
+                Hey Siri, <span class="brand">JetBuy Coffee</span> ☕️
+              </div>
+              <div
+                id="siriOrbVisual"
+                class="siri-orb-visual"
+                style="display: none"
+              >
+                <div class="siri-orb" tabindex="0"></div>
+                <div class="siri-wave siri-wave1"></div>
+                <div class="siri-wave siri-wave2"></div>
+              </div>
+              <div class="app-dock">
+                <div class="app-icon app-jetbuy big">
+                  <img
+                    src="images/jetbuy-icon.png"
+                    alt="JetBuy"
+                    width="48"
+                    height="48"
+                  />
+                  <span>JetBuy</span>
+                </div>
+                <div class="app-icon">
+                  <img
+                    src="images/messages-icon.png"
+                    alt="Messages"
+                    width="48"
+                    height="48"
+                  />
+                  <span>Messages</span>
+                </div>
+                <div class="app-icon">
+                  <img
+                    src="images/music-icon.jpg"
+                    alt="Music"
+                    width="48"
+                    height="48"
+                  />
+                  <span>Music</span>
+                </div>
+                <div class="app-icon">
+                  <img
+                    src="images/phone-icon.jpg"
+                    alt="Phone"
+                    width="48"
+                    height="48"
+                  />
+                  <span>Phone</span>
+                </div>
+              </div>
             </div>
-            <div id="siriCommand" class="siri-command-inside" style="display: none">
-              Hey Siri, <span class="brand">JetBuy Coffee</span> ☕️
-            </div>
-            <div id="siriOrbVisual" class="siri-orb-visual" style="display: none">
-              <div class="siri-orb" tabindex="0"></div>
-              <div class="siri-wave siri-wave1"></div>
-              <div class="siri-wave siri-wave2"></div>
-            </div>
-            <div class="app-dock">
-              <div class="app-icon app-jetbuy big">
-                <img src="images/jetbuy-icon.png" alt="JetBuy" width="48" height="48" />
-                <span>JetBuy</span>
-              </div>
-              <div class="app-icon">
-                <img src="images/messages-icon.png" alt="Messages" width="48" height="48" />
-                <span>Messages</span>
-              </div>
-              <div class="app-icon">
-                <img src="images/music-icon.jpg" alt="Music" width="48" height="48" />
-                <span>Music</span>
-              </div>
-              <div class="app-icon">
-                <img src="images/phone-icon.jpg" alt="Phone" width="48" height="48" />
-                <span>Phone</span>
-              </div>
+            <img
+              src="images/iphone-frame.jpg"
+              alt="iPhone Frame"
+              class="iphone-frame"
+              width="320"
+              height="640"
+            />
+          </div>
+          <div class="hero-content hero-content-left">
+            <div class="hero-main-text"><span id="heroMainTyping"></span></div>
+            <div class="hero-sub-text"><span id="heroSubTyping"></span></div>
+            <div class="hero-actions hero-actions-left">
+              <a
+                href="https://apps.apple.com/us/app/jetbuy/id6504262967"
+                target="_blank"
+                class="app-store-badge"
+                aria-label="Download on the App Store"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  height="48"
+                />
+              </a>
+              <a href="#" id="demoOrderBtn" class="try-jetbuy-btn" tabindex="0"
+                >Try JetBuy!</a
+              >
             </div>
           </div>
-          <img src="images/iphone-frame.jpg" alt="iPhone Frame" class="iphone-frame" width="320" height="640" />
         </div>
-        <div class="hero-content hero-content-left">
-          <div class="hero-headline">
-            <div class="hero-main-text">Lightning fast. Zero hassle.</div>
-            <div class="hero-sub-text">
-              Ordering made <span class="highlight">simple</span>
-            </div>
-          </div>
-          <div class="hero-actions hero-actions-left">
-            <a
-              href="https://apps.apple.com/us/app/jetbuy/id6504262967"
-              target="_blank"
-              class="app-store-badge"
-              aria-label="Download on the App Store"
-            >
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section
+        class="brand-section fullscreen-content section-alt"
+        id="brands"
+        aria-label="Supported Brands"
+      >
+        <h2 class="brand-title">One Million Stores. One Billion Items.</h2>
+        <div class="brand-logos-scroll">
+          <div class="brand-logos-grid">
+            <div class="brand-row">
               <img
-                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on the App Store"
-                height="48"
+                src="brand-logos/starbucks.jpg"
+                alt="Starbucks"
+                width="80"
+                height="80"
               />
-            </a>
-            <a href="#" id="demoOrderBtn" class="try-jetbuy-btn" tabindex="0">Try JetBuy!</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="brand-section fullscreen-content" id="brands" aria-label="Supported Brands">
-      <h2 class="brand-title">One Million Stores. One Billion Items.</h2>
-      <div class="brand-logos-scroll">
-        <div class="brand-logos-grid">
-          <div class="brand-row">
-            <img src="brand-logos/starbucks.jpg" alt="Starbucks" width="80" height="80" />
-            <img src="brand-logos/chipotle.jpg" alt="Chipotle" width="80" height="80" />
-            <img src="brand-logos/dominos.jpg" alt="Domino's" width="80" height="80" />
-            <img src="brand-logos/sweetgreen.jpg" alt="Sweetgreen" width="80" height="80" />
-          </div>
-          <div class="brand-row">
-            <img src="brand-logos/mcdonalds.jpg" alt="McDonald's" width="80" height="80" />
-            <img src="brand-logos/canes.jpg" alt="Raising Cane's" width="80" height="80" />
-            <img src="brand-logos/wingstop.jpg" alt="Wingstop" width="80" height="80" />
-            <img src="brand-logos/dunkin.jpg" alt="Dunkin'" width="80" height="80" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="testimonials-grid-section" id="testimonials">
-      <div class="testimonials-grid">
-        <div class="testimonial-row">
-          <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/zo86k3lwiV2mRoXCmecOeMUBro.jpeg?scale-down-to=1024" alt="Tim Draper Testimonial" width="340" height="340" />
-          </div>
-          <div class="testimonial-text">
-            <h2>Billionaire Tim Draper, founding family of Venture Capital, says</h2>
-            <p class="testimonial-quote">
-              "That's really cool!" after ordering Papa Johns Pizza to Draper HQ with Siri for the first time.
-            </p>
-            <div class="testimonial-actions">
-              <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
-              <a href="https://www.youtube.com/shorts/xpBwmWWn2jw" target="_blank" class="watch-testimonial-btn">Watch Tim Draper try JetBuy!</a>
+              <img
+                src="brand-logos/chipotle.jpg"
+                alt="Chipotle"
+                width="80"
+                height="80"
+              />
+              <img
+                src="brand-logos/dominos.jpg"
+                alt="Domino's"
+                width="80"
+                height="80"
+              />
+              <img
+                src="brand-logos/sweetgreen.jpg"
+                alt="Sweetgreen"
+                width="80"
+                height="80"
+              />
+            </div>
+            <div class="brand-row">
+              <img
+                src="brand-logos/mcdonalds.jpg"
+                alt="McDonald's"
+                width="80"
+                height="80"
+              />
+              <img
+                src="brand-logos/canes.jpg"
+                alt="Raising Cane's"
+                width="80"
+                height="80"
+              />
+              <img
+                src="brand-logos/wingstop.jpg"
+                alt="Wingstop"
+                width="80"
+                height="80"
+              />
+              <img
+                src="brand-logos/dunkin.jpg"
+                alt="Dunkin'"
+                width="80"
+                height="80"
+              />
             </div>
           </div>
         </div>
-        <div class="testimonial-row">
-          <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/23uZbRjK1SB1O6sYWSwxXATJD2w.jpg?scale-down-to=1024" alt="Andrew Ng Testimonial" width="340" height="340" />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="testimonials-grid-section section-alt2" id="testimonials">
+        <div class="testimonials-grid">
+          <div class="testimonial-row">
+            <span class="ripple"></span>
+            <div class="testimonial-image">
+              <img
+                src="https://framerusercontent.com/images/zo86k3lwiV2mRoXCmecOeMUBro.jpeg?scale-down-to=1024"
+                alt="Tim Draper Testimonial"
+                width="340"
+                height="340"
+              />
+            </div>
+            <div class="testimonial-text">
+              <h2>
+                Billionaire Tim Draper, founding family of Venture Capital, says
+              </h2>
+              <p class="testimonial-quote">
+                "That's really cool!" after ordering Papa Johns Pizza to Draper
+                HQ with Siri for the first time.
+              </p>
+              <div class="testimonial-actions">
+                <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
+                <a
+                  href="https://www.youtube.com/shorts/xpBwmWWn2jw"
+                  target="_blank"
+                  class="watch-testimonial-btn"
+                  >Watch Tim Draper try JetBuy!</a
+                >
+              </div>
+            </div>
           </div>
-          <div class="testimonial-text">
-            <h2>Andrew Ng, Professor at Stanford AI Lab, CoFounder of Google AI, says</h2>
-            <p class="testimonial-quote">
-              "That is the first time I ordered food with Ai!" after ordering Blue Line Pizza from Mountain View, California.
-            </p>
-            <div class="testimonial-actions">
-              <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
-              <a href="https://www.youtube.com/shorts/2X4gF9wNg8Q" target="_blank" class="watch-testimonial-btn">Watch Andrew Ng try JetBuy!</a>
+          <div class="testimonial-row">
+            <span class="ripple"></span>
+            <div class="testimonial-image">
+              <img
+                src="https://framerusercontent.com/images/23uZbRjK1SB1O6sYWSwxXATJD2w.jpg?scale-down-to=1024"
+                alt="Andrew Ng Testimonial"
+                width="340"
+                height="340"
+              />
+            </div>
+            <div class="testimonial-text">
+              <h2>
+                Andrew Ng, Professor at Stanford AI Lab, CoFounder of Google AI,
+                says
+              </h2>
+              <p class="testimonial-quote">
+                "That is the first time I ordered food with Ai!" after ordering
+                Blue Line Pizza from Mountain View, California.
+              </p>
+              <div class="testimonial-actions">
+                <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
+                <a
+                  href="https://www.youtube.com/shorts/2X4gF9wNg8Q"
+                  target="_blank"
+                  class="watch-testimonial-btn"
+                  >Watch Andrew Ng try JetBuy!</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-row">
+            <span class="ripple"></span>
+            <div class="testimonial-image">
+              <img
+                src="https://framerusercontent.com/images/32N4bA4JsnM3fiaFE53TVJxGWM.jpg?scale-down-to=1024"
+                alt="Gary Tan Testimonial"
+                width="340"
+                height="340"
+              />
+            </div>
+            <div class="testimonial-text">
+              <h2>Gary Tan, President of Y Combinator, says</h2>
+              <p class="testimonial-quote">
+                "That's a great demo!" after ordering a Coca-Cola on JetBuy at
+                YC Demo Day 2025 in San Francisco, California.
+              </p>
+              <div class="testimonial-actions">
+                <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
+                <a
+                  href="https://www.youtube.com/shorts/6gRzN6vJYcA"
+                  target="_blank"
+                  class="watch-testimonial-btn"
+                  >Watch Gary Tan try JetBuy!</a
+                >
+              </div>
             </div>
           </div>
         </div>
-        <div class="testimonial-row">
-          <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/32N4bA4JsnM3fiaFE53TVJxGWM.jpg?scale-down-to=1024" alt="Gary Tan Testimonial" width="340" height="340" />
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section
+        class="faqs fullscreen-content section-alt"
+        id="faqs"
+        aria-label="Frequently Asked Questions"
+      >
+        <h2>Frequently Asked Questions</h2>
+        <div class="faqs-list">
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq1"
+              tabindex="0"
+            >
+              How does JetBuy work?
+            </button>
+            <div class="faq-answer" id="faq1">
+              JetBuy lets you order food with a simple Siri command, making the
+              process ultra-fast and seamless.
+            </div>
           </div>
-          <div class="testimonial-text">
-            <h2>Gary Tan, President of Y Combinator, says</h2>
-            <p class="testimonial-quote">
-              "That's a great demo!" after ordering a Coca-Cola on JetBuy at YC Demo Day 2025 in San Francisco, California.
-            </p>
-            <div class="testimonial-actions">
-              <a href="#" class="try-jetbuy-btn">Try JetBuy!</a>
-              <a href="https://www.youtube.com/shorts/6gRzN6vJYcA" target="_blank" class="watch-testimonial-btn">Watch Gary Tan try JetBuy!</a>
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq2"
+              tabindex="0"
+            >
+              Is JetBuy secure?
+            </button>
+            <div class="faq-answer" id="faq2">
+              Yes, your data is encrypted and your privacy is our top priority.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq3"
+              tabindex="0"
+            >
+              Which restaurants are available?
+            </button>
+            <div class="faq-answer" id="faq3">
+              We partner with top chains and local favorites—check the app for
+              the latest list!
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="section-divider"></div>
+      <div class="section-divider"></div>
 
-    <section class="faqs fullscreen-content" id="faqs" aria-label="Frequently Asked Questions">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faqs-list">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq1" tabindex="0">
-            How does JetBuy work?
-          </button>
-          <div class="faq-answer" id="faq1">
-            JetBuy lets you order food with a simple Siri command, making the process ultra-fast and seamless.
+      <section
+        class="download fullscreen section-alt2"
+        id="download"
+        aria-label="Download JetBuy"
+      >
+        <div>
+          <h2>Get JetBuy Now</h2>
+          <a
+            href="https://apps.apple.com/us/app/jetbuy/id6504262967"
+            target="_blank"
+            class="app-store-badge"
+            aria-label="Download on the App Store"
+          >
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              height="48"
+            />
+          </a>
+          <div class="qr-download">
+            <img
+              id="qrCode"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://apps.apple.com/us/app/jetbuy/id6504262967"
+              alt="QR code to download JetBuy"
+              width="150"
+              height="150"
+            />
+            <div>Scan to download</div>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq2" tabindex="0">
-            Is JetBuy secure?
-          </button>
-          <div class="faq-answer" id="faq2">
-            Yes, your data is encrypted and your privacy is our top priority.
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq3" tabindex="0">
-            Which restaurants are available?
-          </button>
-          <div class="faq-answer" id="faq3">
-            We partner with top chains and local favorites—check the app for the latest list!
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <div class="section-divider"></div>
+    <footer>
+      <p>
+        © 2025 JetBuy | <a href="./legal/privacy-policy">Privacy Policy</a> |
+        <a href="./legal/terms-conditions">Terms &amp; Conditions</a> |
+        <a href="./legal/eula">EULA</a>
+      </p>
+    </footer>
 
-    <section class="download fullscreen" id="download" aria-label="Download JetBuy">
-      <div>
-        <h2>Get JetBuy Now</h2>
-        <a
-          href="https://apps.apple.com/us/app/jetbuy/id6504262967"
-          target="_blank"
-          class="app-store-badge"
-          aria-label="Download on the App Store"
-        >
-          <img
-            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="Download on the App Store"
-            height="48"
-          />
-        </a>
-        <div class="qr-download">
-          <img
-            id="qrCode"
-            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://apps.apple.com/us/app/jetbuy/id6504262967"
-            alt="QR code to download JetBuy"
-            width="150"
-            height="150"
-          />
-          <div>Scan to download</div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <canvas id="confetti-canvas"></canvas>
 
-  <footer>
-    <p>
-      © 2025 JetBuy | <a href="./legal/privacy-policy">Privacy Policy</a> |
-      <a href="./legal/terms-conditions">Terms &amp; Conditions</a> |
-      <a href="./legal/eula">EULA</a>
-    </p>
-  </footer>
-
-  <div id="toast" class="toast" aria-live="polite"></div>
-  <canvas id="confetti-canvas"></canvas>
-
-  <!-- AI Accessibility Widget START -->
-  <button id="aiAccessBtn" aria-label="Accessibility options" class="ai-access-btn">
-    ♿
-  </button>
-  <div
-    id="aiAccessPanel"
-    class="ai-access-panel"
-    aria-modal="true"
-    aria-labelledby="aiAccessTitle"
-    tabindex="-1"
-  >
-    <h3 id="aiAccessTitle">Accessibility Options</h3>
-    <button class="ai-access-feature" id="readAloudBtn">🔊 Read Aloud</button>
-    <button class="ai-access-feature" id="highlightLinksBtn">
-      🔗 Highlight Links
-    </button>
-    <button class="ai-access-feature" id="simplifyLayoutBtn">
-      🧹 Simplify Layout
-    </button>
+    <!-- AI Accessibility Widget START -->
     <button
-      class="ai-access-close"
-      id="closeAiAccessPanel"
-      aria-label="Close accessibility panel"
+      id="aiAccessBtn"
+      aria-label="Accessibility options"
+      class="ai-access-btn"
     >
-      &times;
+      ♿
     </button>
-  </div>
-  <!-- AI Accessibility Widget END -->
-
-  <!-- Cute Chatbot Widget START -->
-  <button id="chatbotToggle" class="chatbot-toggle" aria-label="Open chat">
-    <img src="images/jetbuy-icon.png" alt="Chatbot" width="32" height="32" />
-  </button>
-  <div
-    id="chatbotWidget"
-    class="chatbot-widget"
-    aria-live="polite"
-    aria-label="JetBuy Chatbot"
-    style="display: none"
-  >
-    <div class="chatbot-header">
-      <img
-        src="images/jetbuy-icon.png"
-        alt="JetBuy Bot"
-        class="chatbot-avatar"
-        width="32"
-        height="32"
-      />
-      <span class="chatbot-title">JetBuy Bot</span>
-      <button id="chatbotClose" class="chatbot-close" aria-label="Close chat">
+    <div
+      id="aiAccessPanel"
+      class="ai-access-panel"
+      aria-modal="true"
+      aria-labelledby="aiAccessTitle"
+      tabindex="-1"
+    >
+      <h3 id="aiAccessTitle">Accessibility Options</h3>
+      <button class="ai-access-feature" id="readAloudBtn">🔊 Read Aloud</button>
+      <button class="ai-access-feature" id="highlightLinksBtn">
+        🔗 Highlight Links
+      </button>
+      <button class="ai-access-feature" id="simplifyLayoutBtn">
+        🧹 Simplify Layout
+      </button>
+      <button
+        class="ai-access-close"
+        id="closeAiAccessPanel"
+        aria-label="Close accessibility panel"
+      >
         &times;
       </button>
     </div>
-    <div id="chatbotMessages" class="chatbot-messages"></div>
-    <div id="chatbotTyping" class="chatbot-typing" style="display: none">
-      <span></span><span></span><span></span>
+    <!-- AI Accessibility Widget END -->
+
+    <!-- Cute Chatbot Widget START -->
+    <button id="chatbotToggle" class="chatbot-toggle" aria-label="Open chat">
+      <img src="images/jetbuy-icon.png" alt="Chatbot" width="32" height="32" />
+    </button>
+    <div
+      id="chatbotWidget"
+      class="chatbot-widget"
+      aria-live="polite"
+      aria-label="JetBuy Chatbot"
+      style="display: none"
+    >
+      <div class="chatbot-header">
+        <img
+          src="images/jetbuy-icon.png"
+          alt="JetBuy Bot"
+          class="chatbot-avatar"
+          width="32"
+          height="32"
+        />
+        <span class="chatbot-title">JetBuy Bot</span>
+        <button id="chatbotClose" class="chatbot-close" aria-label="Close chat">
+          &times;
+        </button>
+      </div>
+      <div id="chatbotMessages" class="chatbot-messages"></div>
+      <div id="chatbotTyping" class="chatbot-typing" style="display: none">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="chatbot-input-row">
+        <input
+          id="chatbotInput"
+          type="text"
+          placeholder="Type a message..."
+          autocomplete="off"
+          aria-label="Chat input"
+        />
+        <button id="chatbotSend" class="chatbot-send" aria-label="Send">
+          ➤
+        </button>
+      </div>
+      <div class="chatbot-quick-replies" class="chatbot-quick-replies"></div>
     </div>
-    <div class="chatbot-input-row">
-      <input
-        id="chatbotInput"
-        type="text"
-        placeholder="Type a message..."
-        autocomplete="off"
-        aria-label="Chat input"
-      />
-      <button id="chatbotSend" class="chatbot-send" aria-label="Send">
-        ➤
-      </button>
-    </div>
-    <div class="chatbot-quick-replies" class="chatbot-quick-replies"></div>
-  </div>
-  <!-- Cute Chatbot Widget END -->
+    <!-- Cute Chatbot Widget END -->
 
-  <!-- PWA Install Button (hidden by default, shows when available) -->
-  <button
-    id="installBtn"
-    style="
-      display: none;
-      position: fixed;
-      bottom: 80px;
-      right: 1.5rem;
-      z-index: 99999;
-    "
-  >
-    Install JetBuy App
-  </button>
+    <!-- PWA Install Button (hidden by default, shows when available) -->
+    <button
+      id="installBtn"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 1.5rem;
+        z-index: 99999;
+      "
+    >
+      Install JetBuy App
+    </button>
 
-  <!-- Third-party libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js" defer></script>
-  <script src="https://unpkg.com/scrollreveal" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
-  <script src="script.js" defer></script>
+    <!-- Third-party libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"
+      defer
+    ></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
 
-  <!-- Responsive Nav Toggle -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const navToggle = document.getElementById('navToggle');
-      const navList = document.getElementById('nav-list');
-      navToggle.addEventListener('click', function() {
-        const open = navList.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      navList.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 800) {
-            navList.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-          }
+    <!-- Responsive Nav Toggle -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.getElementById("navToggle");
+        const navList = document.getElementById("nav-list");
+        navToggle.addEventListener("click", function () {
+          const open = navList.classList.toggle("open");
+          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
         });
-      });
-    });
-  </script>
-
-  <!-- PWA Install Prompt Handler -->
-  <script>
-    let deferredPrompt;
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      const installBtn = document.getElementById("installBtn");
-      if (installBtn) {
-        installBtn.style.display = "block";
-        installBtn.onclick = () => {
-          installBtn.style.display = "none";
-          deferredPrompt.prompt();
-          deferredPrompt.userChoice.then(() => {
-            deferredPrompt = null;
+        navList.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (window.innerWidth <= 800) {
+              navList.classList.remove("open");
+              navToggle.setAttribute("aria-expanded", "false");
+            }
           });
-        };
-      }
-    });
-  </script>
-
-  <!-- Siri Animation Sequence -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      function showWithFade(id, displayType = "block") {
-        const el = document.getElementById(id);
-        if (el) {
-          el.style.display = displayType;
-          el.classList.add("fade-in");
-        }
-      }
-      setTimeout(() => showWithFade("siriOrbVisual", "flex"), 500);
-      setTimeout(() => showWithFade("siriCommand"), 1500);
-      setTimeout(() => showWithFade("staticMessage"), 2500);
-    });
-  </script>
-
-  <!-- Hero Section Animation -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      setTimeout(() => {
-        document.querySelector('.hero-flex').classList.add('hero-animate');
-      }, 400);
-    });
-  </script>
-
-  <!-- Typing Animation for Hero Static Message -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const msg = 'A hot <b>Caramel Macchiato</b><br>is on its way to you 🛵';
-      const el = document.getElementById('typingMessage');
-      let i = 0;
-      function typeWriter() {
-        if (i < msg.length) {
-          el.innerHTML += msg.charAt(i) === '<' ? '' : msg.charAt(i);
-          if (msg.substr(i, 3) === '<b>') { el.innerHTML += '<b>'; i += 3; }
-          else if (msg.substr(i, 4) === '</b>') { el.innerHTML += '</b>'; i += 4; }
-          else if (msg.substr(i, 4) === '<br>') { el.innerHTML += '<br>'; i += 4; }
-          else { i++; }
-          setTimeout(typeWriter, 24);
-        }
-      }
-      setTimeout(typeWriter, 2700);
-    });
-  </script>
-
-  <!-- Siri Orb Sound/Interactive Feedback (simple beep) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const orb = document.querySelector('.siri-orb');
-      if (orb) {
-        orb.addEventListener('click', function() {
-          const ctx = new (window.AudioContext || window.webkitAudioContext)();
-          const o = ctx.createOscillator();
-          o.type = 'sine';
-          o.frequency.value = 880;
-          o.connect(ctx.destination);
-          o.start();
-          setTimeout(() => o.stop(), 120);
         });
-      }
-    });
-  </script>
-</body>
+      });
+    </script>
+
+    <!-- PWA Install Prompt Handler -->
+    <script>
+      let deferredPrompt;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const installBtn = document.getElementById("installBtn");
+        if (installBtn) {
+          installBtn.style.display = "block";
+          installBtn.onclick = () => {
+            installBtn.style.display = "none";
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(() => {
+              deferredPrompt = null;
+            });
+          };
+        }
+      });
+    </script>
+
+    <!-- Siri Animation Sequence -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function showWithFade(id, displayType = "block") {
+          const el = document.getElementById(id);
+          if (el) {
+            el.style.display = displayType;
+            el.classList.add("fade-in");
+          }
+        }
+        setTimeout(() => showWithFade("siriOrbVisual", "flex"), 500);
+        setTimeout(() => showWithFade("siriCommand"), 1500);
+        setTimeout(() => showWithFade("staticMessage"), 2500);
+      });
+    </script>
+
+    <!-- Hero Section Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          document.querySelector(".hero-flex").classList.add("hero-animate");
+        }, 400);
+      });
+    </script>
+
+    <!-- Typing Animation for Hero Static Message -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const msg = "A hot <b>Caramel Macchiato</b><br>is on its way to you 🛵";
+        const el = document.getElementById("typingMessage");
+        let i = 0;
+        function typeWriter() {
+          if (i < msg.length) {
+            el.innerHTML += msg.charAt(i) === "<" ? "" : msg.charAt(i);
+            if (msg.substr(i, 3) === "<b>") {
+              el.innerHTML += "<b>";
+              i += 3;
+            } else if (msg.substr(i, 4) === "</b>") {
+              el.innerHTML += "</b>";
+              i += 4;
+            } else if (msg.substr(i, 4) === "<br>") {
+              el.innerHTML += "<br>";
+              i += 4;
+            } else {
+              i++;
+            }
+            setTimeout(typeWriter, 24);
+          }
+        }
+        setTimeout(typeWriter, 2700);
+      });
+    </script>
+
+    <!-- Hero Headline and Subtext Typing Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Main headline typing
+        const mainText = "Lightning fast. Zero hassle.";
+        const mainEl = document.getElementById("heroMainTyping");
+        let i = 0;
+        function typeMain() {
+          if (i < mainText.length) {
+            mainEl.textContent += mainText.charAt(i);
+            i++;
+            setTimeout(typeMain, 38);
+          } else {
+            setTimeout(typeSub, 400);
+          }
+        }
+
+        // Subtext typing
+        const subText = "Ordering made ";
+        const subEl = document.getElementById("heroSubTyping");
+        const highlightSpan = document.createElement("span");
+        highlightSpan.className = "highlight";
+        highlightSpan.textContent = "simple";
+        let j = 0;
+        function typeSub() {
+          if (j < subText.length) {
+            subEl.textContent += subText.charAt(j);
+            j++;
+            setTimeout(typeSub, 32);
+          } else {
+            subEl.appendChild(highlightSpan);
+          }
+        }
+
+        setTimeout(typeMain, 700); // Start after hero fade-in
+      });
+    </script>
+
+    <!-- Siri Orb Interactive Feedback (Pulse + Beep) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const orb = document.querySelector(".siri-orb");
+        if (orb) {
+          // Pulse animation on click/tap
+          orb.addEventListener("mousedown", function () {
+            orb.classList.add("siri-orb-pulse");
+          });
+          orb.addEventListener("mouseup", function () {
+            orb.classList.remove("siri-orb-pulse");
+          });
+          orb.addEventListener("mouseleave", function () {
+            orb.classList.remove("siri-orb-pulse");
+          });
+          orb.addEventListener("touchstart", function () {
+            orb.classList.add("siri-orb-pulse");
+          });
+          orb.addEventListener("touchend", function () {
+            orb.classList.remove("siri-orb-pulse");
+          });
+
+          // Sound feedback on click/tap/keyboard
+          function playBeep() {
+            const ctx = new (window.AudioContext ||
+              window.webkitAudioContext)();
+            const o = ctx.createOscillator();
+            o.type = "sine";
+            o.frequency.value = 880;
+            o.connect(ctx.destination);
+            o.start();
+            setTimeout(() => o.stop(), 120);
+          }
+          orb.addEventListener("click", playBeep);
+          orb.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              playBeep();
+              orb.classList.add("siri-orb-pulse");
+              setTimeout(() => orb.classList.remove("siri-orb-pulse"), 200);
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Testimonial Card Ripple Effect -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".testimonial-row").forEach((card) => {
+          card.addEventListener("click", function (e) {
+            let ripple = card.querySelector(".ripple");
+            ripple.classList.remove("ripple-animate");
+            let rect = card.getBoundingClientRect();
+            let size = Math.max(rect.width, rect.height) * 1.2;
+            ripple.style.width = ripple.style.height = size + "px";
+            ripple.style.left = e.clientX - rect.left - size / 2 + "px";
+            ripple.style.top = e.clientY - rect.top - size / 2 + "px";
+            setTimeout(() => ripple.classList.add("ripple-animate"), 10);
+            setTimeout(() => ripple.classList.remove("ripple-animate"), 500);
+          });
+        });
+      });
+    </script>
+    <script>
+      document
+        .querySelectorAll(".try-jetbuy-btn, .watch-testimonial-btn")
+        .forEach((btn) => {
+          // Add ripple span if not present
+          if (!btn.querySelector(".button-ripple")) {
+            let ripple = document.createElement("span");
+            ripple.className = "button-ripple";
+            btn.appendChild(ripple);
+          }
+          btn.addEventListener("click", function (e) {
+            let ripple = btn.querySelector(".button-ripple");
+            ripple.classList.remove("ripple-animate");
+            let rect = btn.getBoundingClientRect();
+            let size = Math.max(rect.width, rect.height) * 1.2;
+            ripple.style.width = ripple.style.height = size + "px";
+            ripple.style.left = e.clientX - rect.left - size / 2 + "px";
+            ripple.style.top = e.clientY - rect.top - size / 2 + "px";
+            setTimeout(() => ripple.classList.add("ripple-animate"), 10);
+            setTimeout(() => ripple.classList.remove("ripple-animate"), 500);
+          });
+        });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Only for desktop (not touch)
+        if (window.matchMedia('(pointer: coarse)').matches === false) {
+          let skipLink = document.querySelector('.skip-link');
+          // Set tabindex=1 to ensure it's first (optional, not always needed)
+          skipLink.setAttribute('tabindex', '1');
+          // Optionally, focus skip link on first Tab press
+          let firstTab = true;
+          function handleFirstTab(e) {
+            if (e.key === 'Tab' && firstTab) {
+              skipLink.focus();
+              firstTab = false;
+              window.removeEventListener('keydown', handleFirstTab);
+            }
+          }
+          window.addEventListener('keydown', handleFirstTab);
+        }
+      });
+    </script>
+  </body>
 </html>
