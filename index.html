@@ -10,60 +10,11 @@
   <meta name="theme-color" content="#142030" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 1rem;
-      background: #142030;
-      position: relative;
-      z-index: 1000;
-    }
-    #nav-list {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      background: none;
-      position: static;
-      flex-direction: row;
-    }
-    #navToggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    @media (max-width: 800px) {
-      #nav-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        background: #142030;
-        width: 100vw;
-        max-width: 320px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      }
-      #nav-list.open {
-        display: flex;
-      }
-      #navToggle {
-        display: block;
-      }
-    }
-    .fade-in { animation: fadeIn 0.7s; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    img { max-width: 100%; height: auto; }
-    .fullscreen, .fullscreen-content { min-height: 100vh; box-sizing: border-box; }
-  </style>
 </head>
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
   <nav role="navigation" aria-label="Main Navigation">
     <a href="./" class="logo">
       <img src="https://framerusercontent.com/images/Dy7LMU246QsodtAffKuqzRgA.png" alt="JetBuy Logo" width="80" height="32" />
@@ -80,7 +31,7 @@
     </ul>
   </nav>
 
-  <main>
+  <main id="mainContent">
     <section class="hero-section fullscreen" id="discover">
       <div class="hero-flex">
         <div class="iphone-mockup tilt" tabindex="0" aria-label="iPhone JetBuy demo">
@@ -162,12 +113,11 @@
       </div>
     </section>
 
-    <!-- Testimonials: JetBuy.co style (image on top, text below, card-like) -->
     <section class="testimonials-grid-section" id="testimonials">
       <div class="testimonials-grid">
         <div class="testimonial-row">
           <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/zo86k3lwiV2mRoXCmecOeMUBro.jpeg?scale-down-to=1024" alt="Tim Draper Testimonial" width="160" height="160" />
+            <img src="https://framerusercontent.com/images/zo86k3lwiV2mRoXCmecOeMUBro.jpeg?scale-down-to=1024" alt="Tim Draper Testimonial" width="340" height="340" />
           </div>
           <div class="testimonial-text">
             <h2>Billionaire Tim Draper, founding family of Venture Capital, says</h2>
@@ -182,7 +132,7 @@
         </div>
         <div class="testimonial-row">
           <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/23uZbRjK1SB1O6sYWSwxXATJD2w.jpg?scale-down-to=1024" alt="Andrew Ng Testimonial" width="160" height="160" />
+            <img src="https://framerusercontent.com/images/23uZbRjK1SB1O6sYWSwxXATJD2w.jpg?scale-down-to=1024" alt="Andrew Ng Testimonial" width="340" height="340" />
           </div>
           <div class="testimonial-text">
             <h2>Andrew Ng, Professor at Stanford AI Lab, CoFounder of Google AI, says</h2>
@@ -197,7 +147,7 @@
         </div>
         <div class="testimonial-row">
           <div class="testimonial-image">
-            <img src="https://framerusercontent.com/images/32N4bA4JsnM3fiaFE53TVJxGWM.jpg?scale-down-to=1024" alt="Gary Tan Testimonial" width="160" height="160" />
+            <img src="https://framerusercontent.com/images/32N4bA4JsnM3fiaFE53TVJxGWM.jpg?scale-down-to=1024" alt="Gary Tan Testimonial" width="340" height="340" />
           </div>
           <div class="testimonial-text">
             <h2>Gary Tan, President of Y Combinator, says</h2>
@@ -385,7 +335,6 @@
         const open = navList.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      // Close nav on link click (mobile usability)
       navList.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth <= 800) {
@@ -430,6 +379,15 @@
       setTimeout(() => showWithFade("siriOrbVisual", "flex"), 500);
       setTimeout(() => showWithFade("siriCommand"), 1500);
       setTimeout(() => showWithFade("staticMessage"), 2500);
+    });
+  </script>
+
+  <!-- Hero Section Animation -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(() => {
+        document.querySelector('.hero-flex').classList.add('hero-animate');
+      }, 400);
     });
   </script>
 </body>
