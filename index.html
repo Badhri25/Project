@@ -504,25 +504,7 @@
     ></script>
     <script src="script.js" defer></script>
 
-    <!-- Responsive Nav Toggle -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const navToggle = document.getElementById("navToggle");
-        const navList = document.getElementById("nav-list");
-        navToggle.addEventListener("click", function () {
-          const open = navList.classList.toggle("open");
-          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-        navList.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            if (window.innerWidth <= 800) {
-              navList.classList.remove("open");
-              navToggle.setAttribute("aria-expanded", "false");
-            }
-          });
-        });
-      });
-    </script>
+    <!-- REMOVE THE DUPLICATE NAV TOGGLE SCRIPT HERE -->
 
     <!-- PWA Install Prompt Handler -->
     <script>
