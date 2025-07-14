@@ -297,7 +297,7 @@ nav ul li a:hover, nav ul li button:hover {
   .brand-logos-grid { row-gap: 1.2rem; }
 }
 
-/* --- Testimonials Section: JetBuy.co Style --- */
+/* --- Testimonials Section: JetBuy.co Style, Larger Images --- */
 .testimonials-grid-section {
   background: #fff;
   padding: 3rem 0;
@@ -328,13 +328,17 @@ nav ul li a:hover, nav ul li button:hover {
 }
 
 .testimonial-image img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
   object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 4px 18px #5a7a9e22;
   background: #fff;
   margin-bottom: 1.2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-text h2 {
@@ -357,7 +361,7 @@ nav ul li a:hover, nav ul li button:hover {
   align-items: center;
 }
 
-/* Responsive: larger cards and spacing on desktop */
+/* Responsive: larger cards and images on desktop */
 @media (min-width: 900px) {
   .testimonials-grid-section {
     padding: 4rem 0;
@@ -372,8 +376,7 @@ nav ul li a:hover, nav ul li button:hover {
     margin: 0 auto;
   }
   .testimonial-image img {
-    width: 160px;
-    height: 160px;
+    max-width: 340px;
   }
   .testimonial-text h2 {
     font-size: 1.5rem;
