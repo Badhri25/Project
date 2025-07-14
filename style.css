@@ -94,12 +94,8 @@ nav ul li a:hover, nav ul li button:hover {
 }
 .hero-flex {
   display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;
+  gap: 2rem;
 }
-@media (min-width: 900px) {
-  .hero-flex { flex-direction: row; gap: 64px; }
-}
-
-/* --- Responsive iPhone Mockup and Frame --- */
 .iphone-mockup {
   position: relative; width: 100%; max-width: 340px;
   aspect-ratio: 9 / 19.5;
@@ -362,41 +358,6 @@ nav ul li a:hover, nav ul li button:hover {
   background: #fff;
 }
 
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .testimonial-row,
-  .testimonial-row.reverse {
-    flex-direction: column;
-    padding: 1.5rem 0.5rem;
-    gap: 1.5rem;
-  }
-  .testimonial-image img {
-    max-width: 98vw;
-    height: 220px;
-  }
-  .testimonials-grid-section {
-    padding: 2rem 0;
-  }
-  .testimonial-text h2 {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 600px) {
-  .testimonial-row,
-  .testimonial-row.reverse {
-    flex-direction: column;
-    padding: 1rem 0.2rem;
-    gap: 1rem;
-  }
-  .testimonial-image img {
-    max-width: 100vw;
-    height: 160px;
-  }
-  .testimonial-text h2 {
-    font-size: 1.1rem;
-  }
-}
-
 /* --- FAQ Section --- */
 .faqs > div { width: 100%; max-width: 700px; margin: 0 auto; }
 .faqs h2 {
@@ -556,3 +517,89 @@ footer a:hover { text-decoration: underline; }
   padding: 0.4em 1.1em; font-size: 0.98rem; cursor: pointer; transition: background 0.15s;
 }
 .chatbot-quick-reply:hover, .chatbot-quick-reply:focus { background: #70f570; color: #142030; }
+
+/* --- Responsive Enhancements for Laptop/Desktop --- */
+@media (min-width: 900px) {
+  .hero-flex {
+    flex-direction: row;
+    justify-content: center;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .iphone-mockup {
+    max-width: 340px;
+    flex-shrink: 0;
+  }
+  .hero-content-left {
+    max-width: 480px;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .hero-main-text { font-size: 2.5rem; }
+  .hero-sub-text { font-size: 1.5rem; }
+  .hero-actions-left { flex-direction: row; gap: 1.5rem; align-items: center; }
+
+  .brand-logos-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    row-gap: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .brand-row {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 0;
+  }
+  .brand-row img {
+    width: 128px;
+    height: 128px;
+  }
+
+  .testimonials-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .testimonial-row {
+    flex-direction: row;
+    padding: 3rem 2rem;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .testimonial-row.reverse {
+    flex-direction: row-reverse;
+  }
+  .testimonial-image img {
+    max-width: 320px;
+    height: 320px;
+  }
+  .testimonial-text h2 {
+    font-size: 2rem;
+  }
+  .testimonial-quote {
+    font-size: 1.2rem;
+  }
+  .testimonial-actions {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .faqs-list, .download > div {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .faqs h2, .download h2 {
+    font-size: 2rem;
+  }
+}
