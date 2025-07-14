@@ -3,7 +3,6 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=320, initial-scale=1" />
   <title>JetBuy</title>
   <meta name="description" content="Order your favorites on JetBuy with just a Siri command" />
   <link rel="icon" href="https://framerusercontent.com/images/S0Weuf4zXAxbrem2VqmVWvJkj10.png" />
@@ -18,85 +17,6 @@
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-    /* Fullscreen content block for sections like brands and FAQs */
-    .fullscreen-content {
-      height: 100vh;
-      width: 100vw;
-      min-height: 100vh;
-      min-width: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-      background: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .fullscreen-content .brand-title,
-    .fullscreen-content h2 {
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-    .fullscreen-content .brand-logos-grid {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      width: 100%;
-    }
-    .fullscreen-content .brand-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      width: 100%;
-    }
-    .fullscreen-content .brand-row img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      border-radius: 20px;
-      box-shadow: 0 4px 18px #5a7a9e0c;
-      background: #fff;
-    }
-    @media (max-width: 900px) {
-      .fullscreen-content .brand-row img {
-        width: 70px;
-        height: 70px;
-      }
-      .fullscreen-content .brand-row {
-        gap: 1.5rem;
-      }
-      .fullscreen-content .brand-logos-grid {
-        gap: 1.5rem;
-      }
-    }
-    /* FAQ Fullscreen styling */
-    .fullscreen-content .faqs-list {
-      width: 100%;
-      max-width: 700px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-      justify-content: center;
-    }
-    .fullscreen-content .faq-item {
-      width: 100%;
-    }
-    .fullscreen-content .faq-question {
-      width: 100%;
-      font-size: 1.3rem;
-      padding: 1.5rem;
-    }
-    .fullscreen-content .faq-answer {
-      font-size: 1.1rem;
-      padding: 1rem 1.5rem 1.5rem 1.5rem;
     }
   </style>
 </head>
@@ -119,7 +39,7 @@
   <main>
     <section class="hero-section fullscreen" id="discover">
       <div class="hero-flex">
-        <div class="iphone-mockup tilt" aria-label="iPhone JetBuy demo">
+        <div class="iphone-mockup tilt" tabindex="0" aria-label="iPhone JetBuy demo">
           <div class="iphone-screen-content">
             <div id="staticMessage" class="static-message" style="display:none;">
               A hot <b>Caramel Macchiato</b><br />
@@ -189,7 +109,6 @@
       </div>
     </section>
 
-    <!-- Testimonials remain as they are (not fullscreen-content for now) -->
     <section class="testimonial-section fullscreen-section" id="testimonial-tim" aria-label="Testimonial Tim Draper">
       <article class="testimonial glass-card" tabindex="0">
         <img class="testimonial-img" src="images/tim-draper.jpg" alt="Tim Draper" />
