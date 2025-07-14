@@ -37,14 +37,13 @@
         <div class="iphone-mockup tilt" tabindex="0" aria-label="iPhone JetBuy demo">
           <div class="iphone-screen-content">
             <div id="staticMessage" class="static-message" style="display: none">
-              A hot <b>Caramel Macchiato</b><br />
-              is on its way to you 🛵
+              <span id="typingMessage"></span>
             </div>
             <div id="siriCommand" class="siri-command-inside" style="display: none">
               Hey Siri, <span class="brand">JetBuy Coffee</span> ☕️
             </div>
             <div id="siriOrbVisual" class="siri-orb-visual" style="display: none">
-              <div class="siri-orb"></div>
+              <div class="siri-orb" tabindex="0"></div>
               <div class="siri-wave siri-wave1"></div>
               <div class="siri-wave siri-wave2"></div>
             </div>
@@ -95,23 +94,29 @@
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <section class="brand-section fullscreen-content" id="brands" aria-label="Supported Brands">
       <h2 class="brand-title">One Million Stores. One Billion Items.</h2>
-      <div class="brand-logos-grid">
-        <div class="brand-row">
-          <img src="brand-logos/starbucks.jpg" alt="Starbucks" width="80" height="80" />
-          <img src="brand-logos/chipotle.jpg" alt="Chipotle" width="80" height="80" />
-          <img src="brand-logos/dominos.jpg" alt="Domino's" width="80" height="80" />
-          <img src="brand-logos/sweetgreen.jpg" alt="Sweetgreen" width="80" height="80" />
-        </div>
-        <div class="brand-row">
-          <img src="brand-logos/mcdonalds.jpg" alt="McDonald's" width="80" height="80" />
-          <img src="brand-logos/canes.jpg" alt="Raising Cane's" width="80" height="80" />
-          <img src="brand-logos/wingstop.jpg" alt="Wingstop" width="80" height="80" />
-          <img src="brand-logos/dunkin.jpg" alt="Dunkin'" width="80" height="80" />
+      <div class="brand-logos-scroll">
+        <div class="brand-logos-grid">
+          <div class="brand-row">
+            <img src="brand-logos/starbucks.jpg" alt="Starbucks" width="80" height="80" />
+            <img src="brand-logos/chipotle.jpg" alt="Chipotle" width="80" height="80" />
+            <img src="brand-logos/dominos.jpg" alt="Domino's" width="80" height="80" />
+            <img src="brand-logos/sweetgreen.jpg" alt="Sweetgreen" width="80" height="80" />
+          </div>
+          <div class="brand-row">
+            <img src="brand-logos/mcdonalds.jpg" alt="McDonald's" width="80" height="80" />
+            <img src="brand-logos/canes.jpg" alt="Raising Cane's" width="80" height="80" />
+            <img src="brand-logos/wingstop.jpg" alt="Wingstop" width="80" height="80" />
+            <img src="brand-logos/dunkin.jpg" alt="Dunkin'" width="80" height="80" />
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <section class="testimonials-grid-section" id="testimonials">
       <div class="testimonials-grid">
@@ -163,6 +168,8 @@
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <section class="faqs fullscreen-content" id="faqs" aria-label="Frequently Asked Questions">
       <h2>Frequently Asked Questions</h2>
       <div class="faqs-list">
@@ -192,6 +199,8 @@
         </div>
       </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <section class="download fullscreen" id="download" aria-label="Download JetBuy">
       <div>
@@ -302,7 +311,7 @@
         ➤
       </button>
     </div>
-    <div id="chatbotQuickReplies" class="chatbot-quick-replies"></div>
+    <div class="chatbot-quick-replies" class="chatbot-quick-replies"></div>
   </div>
   <!-- Cute Chatbot Widget END -->
 
@@ -388,6 +397,44 @@
       setTimeout(() => {
         document.querySelector('.hero-flex').classList.add('hero-animate');
       }, 400);
+    });
+  </script>
+
+  <!-- Typing Animation for Hero Static Message -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const msg = 'A hot <b>Caramel Macchiato</b><br>is on its way to you 🛵';
+      const el = document.getElementById('typingMessage');
+      let i = 0;
+      function typeWriter() {
+        if (i < msg.length) {
+          el.innerHTML += msg.charAt(i) === '<' ? '' : msg.charAt(i);
+          if (msg.substr(i, 3) === '<b>') { el.innerHTML += '<b>'; i += 3; }
+          else if (msg.substr(i, 4) === '</b>') { el.innerHTML += '</b>'; i += 4; }
+          else if (msg.substr(i, 4) === '<br>') { el.innerHTML += '<br>'; i += 4; }
+          else { i++; }
+          setTimeout(typeWriter, 24);
+        }
+      }
+      setTimeout(typeWriter, 2700);
+    });
+  </script>
+
+  <!-- Siri Orb Sound/Interactive Feedback (simple beep) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const orb = document.querySelector('.siri-orb');
+      if (orb) {
+        orb.addEventListener('click', function() {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const o = ctx.createOscillator();
+          o.type = 'sine';
+          o.frequency.value = 880;
+          o.connect(ctx.destination);
+          o.start();
+          setTimeout(() => o.stop(), 120);
+        });
+      }
     });
   </script>
 </body>

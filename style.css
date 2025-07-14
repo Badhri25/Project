@@ -11,6 +11,14 @@
   --card-text-dark: #f7f7f7;
 }
 
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #e8ebf3 40%, #e8ebf3 60%, transparent 100%);
+  margin: 0 0 2.5rem 0;
+}
+
 /* --- Accessibility Skip Link --- */
 .skip-link {
   position: absolute;
@@ -243,6 +251,12 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
     0 0 16px 6px rgba(155, 91, 169, 0.2), 0 0 8px 2px rgba(76, 44, 100, 0.15);
   animation: siri-orb-glow 1.7s infinite alternate, siri-orb-pop 0.8s cubic-bezier(.4,0,.2,1);
   border: 1.5px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  outline: none;
+}
+.siri-orb:active {
+  filter: brightness(1.2) drop-shadow(0 0 10px #49c628);
+  box-shadow: 0 0 18px 7px #70f57055;
 }
 @keyframes siri-orb-glow {
   0% { box-shadow: 0 0 4px 1px rgba(76, 92, 216, 0.4), 0 0 8px 2px rgba(0, 234, 255, 0.3), 0 0 8px 3px rgba(155, 91, 169, 0.2), 0 0 4px 1px rgba(76, 44, 100, 0.15);}
@@ -323,6 +337,8 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
   transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
   text-decoration: none; letter-spacing: 0.01em; position: relative; overflow: hidden; outline: none;
   min-width: 160px;
+  position: relative;
+  overflow: hidden;
 }
 .try-jetbuy-btn:focus, .try-jetbuy-btn:hover,
 .watch-testimonial-btn:focus, .watch-testimonial-btn:hover {
@@ -331,7 +347,26 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
   transform: scale(1.05);
   outline: var(--focus-outline);
 }
-.try-jetbuy-btn:active, .watch-testimonial-btn:active { transform: scale(0.97); }
+.try-jetbuy-btn:active, .watch-testimonial-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px #70f57033;
+}
+.try-jetbuy-btn::after, .watch-testimonial-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 150%; height: 150%;
+  border-radius: 50%;
+  background: rgba(112,245,112,0.18);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 0.25s, opacity 0.3s;
+}
+.try-jetbuy-btn:active::after, .watch-testimonial-btn:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
 @media (max-width: 600px) {
   .try-jetbuy-btn, .watch-testimonial-btn {
     font-size: 1rem;
@@ -348,9 +383,15 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
   font-size: clamp(1.2rem, 5vw, 3.2rem);
   font-weight: 900; margin-bottom: 2.2rem; color: #111;
 }
+.brand-logos-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+}
 .brand-logos-grid {
   display: flex; flex-direction: column; align-items: center; row-gap: 3.5rem;
   padding-top: 2.5rem; padding-bottom: 2.5rem;
+  min-width: 500px;
 }
 .brand-row {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem 2.2rem;
@@ -368,7 +409,8 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
 @media (max-width: 600px) {
   .brand-row img { width: 64px; height: 64px; }
   .brand-row { gap: 0.6rem 1rem; }
-  .brand-logos-grid { row-gap: 1.2rem; }
+  .brand-logos-grid { row-gap: 1.2rem; min-width: 0; }
+  .brand-logos-scroll { overflow-x: auto; }
 }
 @media (max-width: 500px) {
   .brand-row img { width: 48px; height: 48px; }
@@ -403,15 +445,34 @@ section.fullscreen, section.fullscreen-content, section.testimonials-grid-sectio
   text-align: center;
   gap: 1.5rem;
   transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
 }
 .testimonial-row:hover, .testimonial-row:focus-within {
   transform: translateY(-4px) scale(1.025);
   box-shadow: 0 16px 40px #5a7a9e33, 0 1.5px 4px #0001;
+  background: #f7fbff;
 }
-
+.testimonial-row::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: rgba(112,245,112,0.08);
+  opacity: 0.4;
+  pointer-events: none;
+  transition: transform 0.25s, opacity 0.3s;
+}
+.testimonial-row:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
 .testimonial-image img {
   width: 100%;
   max-width: 220px;
+  aspect-ratio: 1/1;
   height: auto;
   object-fit: cover;
   border-radius: 50%;
