@@ -445,50 +445,6 @@
     </div>
     <!-- AI Accessibility Widget END -->
 
-    <!-- Cute Chatbot Widget START -->
-    <button id="chatbotToggle" class="chatbot-toggle" aria-label="Open chat">
-      <img src="images/jetbuy-icon.png" alt="Chatbot" width="32" height="32" />
-    </button>
-    <div
-      id="chatbotWidget"
-      class="chatbot-widget"
-      aria-live="polite"
-      aria-label="JetBuy Chatbot"
-      style="display: none"
-    >
-      <div class="chatbot-header">
-        <img
-          src="images/jetbuy-icon.png"
-          alt="JetBuy Bot"
-          class="chatbot-avatar"
-          width="32"
-          height="32"
-        />
-        <span class="chatbot-title">JetBuy Bot</span>
-        <button id="chatbotClose" class="chatbot-close" aria-label="Close chat">
-          &times;
-        </button>
-      </div>
-      <div id="chatbotMessages" class="chatbot-messages"></div>
-      <div id="chatbotTyping" class="chatbot-typing" style="display: none">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="chatbot-input-row">
-        <input
-          id="chatbotInput"
-          type="text"
-          placeholder="Type a message..."
-          autocomplete="off"
-          aria-label="Chat input"
-        />
-        <button id="chatbotSend" class="chatbot-send" aria-label="Send">
-          ➤
-        </button>
-      </div>
-      <div class="chatbot-quick-replies" class="chatbot-quick-replies"></div>
-    </div>
-    <!-- Cute Chatbot Widget END -->
-
     <!-- PWA Install Button (hidden by default, shows when available) -->
     <button
       id="installBtn"
@@ -733,6 +689,25 @@
           window.addEventListener("keydown", handleFirstTab);
         }
       });
+    </script>
+    <script type="text/javascript">
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: "68aa79b8085da88309dc94ca" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+            voice: {
+              url: "https://runtime-api.voiceflow.com",
+            },
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, "script");
     </script>
   </body>
 </html>
